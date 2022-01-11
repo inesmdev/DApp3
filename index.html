@@ -15,7 +15,7 @@
   <body>
     <main class="container pt-5">
       <div class="col-12 text-center pt-5 pb-5">
-        <button type="button" class="btn btn-primary" id="btn">Transfer 10 BOCA</button>
+        <button type="button" class="btn btn-primary" id="btn">Show Balance</button>
       </div>
       <p class="col-12 text-center" id="output"></p>
     </main>
@@ -166,8 +166,9 @@
 
         async function transfer10() {
           let decimals = await bocaContract.decimals();
-          let amount = 10 * Math.pow(10, decimals);
+          let amount = 0.001 * Math.pow(10, decimals);
 
+          console.log(amount);
           await bocaContract.transfer('0x15433DA387451F9dE4565280C85506CB71aF9376', amount);
           alert('Transaction made.');
         }
